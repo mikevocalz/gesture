@@ -1,0 +1,12 @@
+{
+  "version": "0.0.0",
+  "name": "app",
+  "main": "index.ts",
+  "dependencies": {
+    "moti": "latest",
+    "nativewind": "4.0.36",
+    "react-responsive-carousel": "^3.2.23",
+    "solito": "^4.2.2"
+  },
+  "sideEffects": false
+}

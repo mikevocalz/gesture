@@ -5624,6 +5624,7 @@ __metadata:
     prettier-plugin-tailwindcss: "npm:^0.5.11"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
+    react-glider: "npm:^4.0.2"
     react-is: "npm:^18.2.0"
     react-native: "npm:0.73.6"
     react-native-gesture-handler: "npm:~2.14.0"
@@ -10221,6 +10222,13 @@ __metadata:
   version: 1.0.0
   resolution: "getenv@npm:1.0.0"
   checksum: 10/0b8f5f6ddc2400712bf584765e0b218a7b9eabe41d3cafaf2b73fc36140248f72f7040a38f852804a321ec9813a6873a7cafd7bf1d3ab43e8b6f9a18aba663ad
+  languageName: node
+  linkType: hard
+
+"glider-js@npm:^1.7.7":
+  version: 1.7.8
+  resolution: "glider-js@npm:1.7.8"
+  checksum: 10/d11ab29f9730ffb6098d14aa0bb10949e62303477d5b3b216854293c50676a8a0b7411c0cafed867982e20b144b9c2cd77378d98b689c5c7a813139a4627f1a9
   languageName: node
   linkType: hard
 
@@ -14914,6 +14922,18 @@ __metadata:
   peerDependencies:
     react: ">=17.0.0"
   checksum: 10/1dc433319341ec3dca84513c4197ef4f4c8232604d35f83546a8abfb41d9591f934b66aaaa4dc3dc8b1b65f488705a2a48ae6c1d9792660119a9cdedeab4ca8f
+  languageName: node
+  linkType: hard
+
+"react-glider@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "react-glider@npm:4.0.2"
+  dependencies:
+    glider-js: "npm:^1.7.7"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: 10/8f419d52ef14921b88b8cef8272bb199c124a238170fde8b5df0b956cbf64040e46d39ea93bdea0160633610e5b47c5047c659a4ac49fdf00357db6909c19622
   languageName: node
   linkType: hard
 

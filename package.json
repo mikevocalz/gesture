@@ -16,7 +16,8 @@
   },
   "scripts": {
     "native": "cd apps/expo && yarn start",
-    "web": "cd apps/next && yarn next"
+    "web": "cd apps/next && yarn next",
+    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
   },
   "resolutions": {
     "metro": "~0.80.8",
@@ -27,7 +28,8 @@
     "react-native-svg": "15.1.0",
     "react-native-web": "~0.19.10",
     "solito": "4.2.2",
-    "react-native-reanimated-carousel": "4.0.0-alpha.10"
+    "react-native-reanimated-carousel": "4.0.0-alpha.10",
+    "get-it": "latest"
   },
   "nohoist": [
     "**/expo-router",

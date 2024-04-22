@@ -6,6 +6,7 @@ import WebFooter from "app/components/WebFooter";
 import dynamic from "next/dynamic";
 import { useRouter } from 'solito/router';
 import { usePathname } from 'solito/navigation';
+import { Main, Div }from '@expo/html-elements'
 
 
 function WebLayout({ children }): ReactElement<ReactNode> {
@@ -15,14 +16,14 @@ function WebLayout({ children }): ReactElement<ReactNode> {
   const pathname = usePathname()
 
   return (
-    <View className=" flex min-h-full w-screen bg-gray-100 pt-[72px]">
-      {pathname !== '/login' && <WebHeader />}
+    <Div className=" flex min-h-full w-screen bg-gray-100 pt-[72px]">
+     <WebHeader />
 
-      <View className="-z-40 flex-1">{children}</View>
+      <Main className="-z-40 flex-1">{children}</Main>
 
-      {/* {pathname !== '/login' && <WebFooter />} */}
+ 
       <WebFooter />
-    </View>
+    </Div>
   )
 }
 

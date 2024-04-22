@@ -1,8 +1,8 @@
 /** @jsxImportSource react */
-import { ReactNode } from 'react';
 import './globals.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { StylesProvider } from './styles-provider'
+import { ReactNode } from 'react'
 import { Provider } from "app/provider";
 import WebLayout from 'app/layout/web'
 

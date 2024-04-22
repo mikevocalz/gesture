@@ -47,6 +47,7 @@ const nextConfig = {
       },
     ],
   },
+   pageExtensions: ["jsx", "mdx", "tsx", "ts"],
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -69,7 +70,11 @@ const nextConfig = {
     'react-native-reanimated-carousel',
     'expo-linear-gradient',
     'expo-image',
-    '@react-native/assets-registry'
+    '@react-native/assets-registry',
+    '@sanity/client',
+    '@sanity/image-url',
+    '@portabletext/react-native',
+    '@portabletext/react'
   ],
 
 

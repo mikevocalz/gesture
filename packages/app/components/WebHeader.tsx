@@ -1,7 +1,6 @@
 'use client'
 import { View, Text, Pressable, useWindowDimensions } from 'react-native'
 import Image from "next/image";
-import { remapProps } from "nativewind";
 import { Link } from 'solito/link';
 import { SolitoImage } from 'solito/image';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -11,7 +10,6 @@ import { MotiLink } from 'solito/moti/app'
 import { usePathname } from 'solito/navigation'
 import GestureLogo from './svgs/GestureLogo';
 
-const CustomHeader = remapProps(Header, {});
 
 
 
@@ -21,28 +19,33 @@ const headerLinks: Array<{
   name: string
   protected?: boolean
 }> = [
-    {
-      pathname: '/',
-      isActive: (pathname) => pathname === '/',
-      name: 'Home',
-    },
-    {
-      pathname: '/feed',
-      isActive: (pathname) => pathname.startsWith('/feed'),
-      name: 'Feed',
-      protected: false,
-    },
-    {
-      pathname: '/specials',
-      isActive: (pathname) => pathname.startsWith('/about'),
-      name: 'Specials',
-    },
-    {
-      pathname: '/orders',
-      isActive: (pathname) => pathname.startsWith('/contact'),
-      name: 'Orders',
-    },
-  ]
+  {
+    pathname: '/',
+    isActive: (pathname) => pathname === '/',
+    name: 'Home',
+  },
+  {
+    pathname: '/feed',
+    isActive: (pathname) => pathname.startsWith('/feed'),
+    name: 'Feed',
+    protected: false,
+  },
+  {
+    pathname: '/account',
+    isActive: (pathname) => pathname.startsWith('/account'),
+    name: 'Account',
+  },
+  {
+    pathname: '/orders',
+    isActive: (pathname) => pathname.startsWith('/orders'),
+    name: 'Orders',
+  },
+  {
+    pathname: '/studio',
+    isActive: (pathname) => pathname.startsWith('/studio'),
+    name: 'Admin',
+  },
+]
 
 export function WebHeader() {
   let session

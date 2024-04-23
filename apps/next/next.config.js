@@ -11,8 +11,9 @@ const nextConfig = {
 
   reactStrictMode: false,
   experimental: {
-    optimizeCss: true,
+    //optimizeCss: true,
     scrollRestoration: true,
+        serverActions: true
   },
   images: {
     disableStaticImages: true,

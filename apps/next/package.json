@@ -8,21 +8,28 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.23.4",
     "@expo/next-adapter": "^6.0.0",
-    "@sanity/client": "^6.15.17",
+    "@next/env": "14.2.2",
+    "@sanity/client": "6.15.20",
     "@sanity/image-url": "^1.0.2",
+    "@sanity/ui": "2.1.4",
     "@sanity/vision": "^3.38.0",
     "app": "*",
     "file-loader": "^6.2.0",
     "next": "^14.2.2",
-    "next-sanity": "^6.0.5",
-    "nextjs-progressbar": "^0.0.16",
-    "nextjs-toploader": "^1.6.4",
+    "next-sanity": "^9.0.8",
+    "nextjs-toploader": "^1.6.12",
     "raf": "^3.4.1",
     "react-native-vector-icons-for-web": "^0.1.7",
+    "sanity": "^3.38.0",
     "setimmediate": "^1.0.5",
+    "styled-components": "6.1.8",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {

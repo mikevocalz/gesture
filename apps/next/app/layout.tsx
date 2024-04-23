@@ -5,7 +5,7 @@ import { StylesProvider } from './styles-provider'
 import { ReactNode } from 'react'
 import { Provider } from "app/provider";
 import WebLayout from 'app/layout/web'
-
+import NextTopLoader from 'nextjs-toploader';
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -29,6 +29,17 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <StylesProvider>
           <Provider>
+            <NextTopLoader
+              color="#fdbf2e"
+              shadow="0 0 10px #46c4f6,0 0 5px #46c4f6"
+              initialPosition={0.08}
+              crawlSpeed={200}
+              height={4}
+              crawl={true}
+              showSpinner={true}
+              easing="ease"
+              speed={200}
+            />
             <WebLayout>{children}</WebLayout>
           </Provider>
         </StylesProvider>

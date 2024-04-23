@@ -6,12 +6,10 @@ import {schemaTypes} from './schemaTypes'
 export default defineConfig({
   name: 'default',
   title: 'gestsanity',
-
+  basePath: "/studio",
   projectId: 'p63lpzu8',
   dataset: 'production',
-
   plugins: [structureTool(), visionTool()],
-
   schema: {
     types: schemaTypes,
   },

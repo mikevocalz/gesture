@@ -2,8 +2,8 @@ import { View, Text } from 'react-native'
 import { MotiLink } from 'solito/moti'
 export function OrdersScreen() {
   return (
-    <View className="flex-1 items-center justify-center p-3 bg-sky-400">
-      <Text className="font-bold text-white">Order</Text>
+    <View className="self-center min-h-screen w-full max-w-7xl flex-1 items-center bg-sky-400 p-3">
+      <Text className="font-bold text-white">Orders</Text>
     </View>
   )
 }

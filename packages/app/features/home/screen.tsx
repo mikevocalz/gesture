@@ -152,7 +152,7 @@ async function callApi() {
         scrollEventThrottle={16}
         data={categories}
         horizontal={true}
-        className="h-[300px] max-h-[280px] w-full overflow-visible md:h-[300px]"
+        className="h-[220px] max-h-[280px] w-full  md:h-[300px]"
         contentContainerClassName="flex  ml-4 md:mt-0 mt-2 min-w-full md:mb-[50px] flex "
         renderItem={({ item }) => (
           <RenderItem _id={item._id} title={item.title} image={item.image} />

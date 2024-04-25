@@ -36,6 +36,7 @@
     "@sanity/client": "latest",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "latest",
+    "next-sanity": "latest",
     "sanity": "latest"
   }
 }

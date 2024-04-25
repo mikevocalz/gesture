@@ -27,7 +27,7 @@ const WebFooter = () => {
             {/* Connect Section */}
             <div>
               <h2 className="mb-6  font-[BebasNeue-Bold] text-2xl font-semibold uppercase tracking-wide text-[#2b089f] md:text-3xl">
-                Let's Connect
+                Contact Us
               </h2>
               <ul className="text-gray-800 ">
                 <li className="mb-4">

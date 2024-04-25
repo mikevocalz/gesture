@@ -12,12 +12,12 @@ const HeroWeb = ({heroImages}:{heroImages: string[]}) => {
   const hero = heroImages
 
   return (
-    <Div className="flex max-h-[476px] mb-[20px] w-full overflow-hidden rounded-xl">
+    <Div className="mb-[20px] flex max-h-[476px] w-full overflow-hidden rounded-xl">
       <Carousel
         showArrows={false}
         showIndicators
         showThumbs={false}
-        autoPlay
+        autoPlay={true}
         emulateTouch={true}
         showStatus={false}
         interval={5000}

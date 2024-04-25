@@ -36,10 +36,6 @@ const imagesData = [
     id: 3,
     src: 'https://i.ibb.co/qLSnCwz/mikevocalz-Product-image-of-a-chocolate-cake-Use-a-high-resolu-7934e9b9-47d3-44d8-8764-48eb0926f234.jpg',
   },
-  {
-    id: 4,
-    src: 'https://i.ibb.co/nqG0BST/mikevocalz-Product-image-of-a-chocolate-cake-Use-a-high-resolu-7934e9b9-47d3-44d8-8764-48eb0926f234.jpg',
-  },
 ]
 
 export default function ProductScreen({ route , heroImages}) {
@@ -66,8 +62,8 @@ export default function ProductScreen({ route , heroImages}) {
       nestedScrollEnabled={true}
       contentContainerStyle={{ flexGrow: 1, alignSelf: 'center' }}
       scrollEnabled
-      contentContainerClassName="pb-[100px] md:pb-[300px] flex bg-white self-center"
-      className="flex-1 min-h-screen w-full max-w-7xl  self-center items-center bg-slate-500"
+      contentContainerClassName="pb-[500px] h-full md:pb-[300px] flex bg-white self-center"
+      className="flex-1 min-h-full w-full max-w-7xl  self-center items-center bg-slate-100"
     >
       
 
@@ -76,10 +72,10 @@ export default function ProductScreen({ route , heroImages}) {
           showArrows={false}
           showIndicators
           showThumbs={false}
-          autoPlay
+          autoPlay={true}
           emulateTouch={true}
           showStatus={false}
-          interval={10000}
+          interval={5000}
           dynamicHeight={true}
           infiniteLoop
           width={'100%'}
@@ -104,7 +100,7 @@ export default function ProductScreen({ route , heroImages}) {
         </Carousel>
       </View>
 
-      <View className='max-w-7xl w-full items-center'>
+      <View className='max-w-7xl w-full items-center h-[900px] flex'>
         <Text className="text-black">Hello Web</Text>
       </View>
     </ScreenScrollView>

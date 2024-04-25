@@ -1,5 +1,4 @@
 const { withExpo } = require('@expo/next-adapter')
-const { DefinePlugin } = require('webpack')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -11,9 +10,8 @@ const nextConfig = {
 
   reactStrictMode: false,
   experimental: {
-    //optimizeCss: true,
-    scrollRestoration: true,
-        serverActions: true
+    optimizeCss: true,
+    scrollRestoration: true
   },
   images: {
     disableStaticImages: true,
@@ -48,7 +46,6 @@ const nextConfig = {
       },
     ],
   },
-   pageExtensions: ["jsx", "mdx", "tsx", "ts"],
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -75,7 +72,9 @@ const nextConfig = {
     '@sanity/client',
     '@sanity/image-url',
     '@portabletext/react-native',
-    '@portabletext/react'
+    '@portabletext/react',
+    '@sanity/vision',
+    'sanity'
   ],
 
 

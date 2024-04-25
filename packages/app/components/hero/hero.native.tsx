@@ -1,4 +1,4 @@
-import { Dimensions, ImageBackground, Platform, StyleSheet, Text, View } from 'react-native'
+import { Dimensions,  Platform, StyleSheet,Image, ImageBackground,Text, View } from 'react-native'
 import { useState, FC, Fragment } from 'react'
 import Animated, {
   Extrapolation,
@@ -10,7 +10,6 @@ import Animated, {
 import { SolitoImage } from 'solito/image'
 import Carousel from 'react-native-reanimated-carousel'
 import { Section } from '@expo/html-elements'
-
 
 export default function Hero ({ heroImages }: { heroImages: string[] })  {
   const [pagingEnabled, setPagingEnabled] = useState<boolean>(true)
@@ -84,7 +83,7 @@ const sqHeight = pWidth < 768 ? 400 : 600
 console.log('hero images: ', heroImages)
 
   return (
-    <View className="  mb-[20px] max-h-[400px]  w-full max-w-7xl overflow-hidden rounded-xl">
+    <View className="flex mb-[20px] max-h-[400px]  w-full max-w-7xl overflow-hidden rounded-xl">
       <Carousel
         style={{
           flexGrow:1,
@@ -104,18 +103,18 @@ console.log('hero images: ', heroImages)
         data={heroImages}
         renderItem={({ item, index}):any => (
           <ImageBackground
-            key={index}
-            //contentFit='cover'
+            key={item._id}
             //height={pWidth/2}
+            resizeMode='cover'
             alt={String(item._id)}
             source={item.image}
-            className='flex-1 w-full max-w-[1280px] max-h-[300px] aspect-[16/9] '
+           //className='flex-1 w-full max-w-[1280px] max-h-[300px] aspect-[16/9]'
             style={{
               flex: 1,
               width: pWidth,
               maxWidth: 1280,
-              maxHeight: 400,
-              aspectRatio: 16 / 9,
+              maxHeight: 300,
+              aspectRatio: 16/9,
             }}
           >
             <View

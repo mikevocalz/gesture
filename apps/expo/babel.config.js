@@ -2,6 +2,8 @@ module.exports = function (api) {
   api.cache(true);
   const plugins = [
     'react-native-reanimated/plugin',
+    // '@babel/plugin-syntax-flow',
+    //       "@babel/plugin-transform-react-jsx",
     [
       'module-resolver',
       {
@@ -14,7 +16,7 @@ module.exports = function (api) {
   ];
 
   return {
-    presets: [ '@babel/plugin-syntax-flow',['babel-preset-expo', { jsxImportSource: 'nativewind' }], 'nativewind/babel'],
+    presets: [ ['babel-preset-expo', { jsxImportSource: 'nativewind' }], 'nativewind/babel'],
     plugins,
   };
 };

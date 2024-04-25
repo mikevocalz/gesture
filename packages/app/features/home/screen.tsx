@@ -24,6 +24,10 @@ import {urlFor} from '../../../../apps/expo/utils/helpers'
 import HeroWeb from '../../components/hero/hero.web'
 import Hero from '../../components/hero/hero.native'
 
+import { createClient } from '@sanity/client'
+import { config } from 'app/sanity/sanityClient.web';
+import { categoryQuery, congratsQuery, heroQuery, productQuery } from 'app/sanity/queries';
+
 type HomeProps = {
   title?: string,
   image?: string,
@@ -36,7 +40,7 @@ export function HomeScreen() {
   const { width } = Dimensions.get('screen')
   const isWeb = Platform.OS === 'web'
   const isTab = width >= 600
-  const sqWidth = width < 768 ? 100 : 156
+  const sqWidth = width < 768 ? 115 : 176
 
 
 
@@ -45,14 +49,22 @@ export function HomeScreen() {
   const [categories, setCategories] = useState([])
 const [congrats, setCongrats] = useState([])
 
-  async function callApi() {
-    const response = await fetch('/api/sanity')
-    const data = await response.json()
 
-    setProductData(data.products)
-    setHeroData(data.hero)
-    setCategories(data.categories)
-    setCongrats(data.congrats)
+
+async function callApi() {
+
+    const client = createClient(config)
+
+    const congrats = await client.fetch(congratsQuery)
+    const products =  await client.fetch(productQuery)
+    const hero = await client.fetch(heroQuery)
+    const categories = await client.fetch(categoryQuery)
+
+
+    setProductData(products)
+    setHeroData(hero)
+    setCategories(categories)
+    setCongrats(congrats)
 
     //console.log('response', data.products)
   }
@@ -62,7 +74,7 @@ const [congrats, setCongrats] = useState([])
   }, [])
 
 
-  const heroImages = heroData.filter((img:string) => img.image)
+  const heroImages = heroData.filter((img:any) => img.image)
   //console.log('me: ', heroImages)
 
   const { push } = useRouter()
@@ -125,7 +137,6 @@ const [congrats, setCongrats] = useState([])
       contentContainerClassName="md:pb-[300px] flex bg-white items-center"
       className="h-full w-full max-w-7xl self-center pb-[300px] "
     >
-
       {isWeb ? (
         <HeroWeb heroImages={heroImages} />
       ) : (
@@ -136,12 +147,13 @@ const [congrats, setCongrats] = useState([])
 
       <FlatList
         showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
         scrollEnabled
         scrollEventThrottle={16}
         data={categories}
         horizontal={true}
-        className=" w-full"
-        contentContainerClassName="flex ml-4 md:mt-0 mt-2 min-w-full md:mb-[50px] flex md:h-[200px] h-[200px] max-h-[280px]"
+        className="h-[300px] max-h-[280px] w-full overflow-visible md:h-[300px]"
+        contentContainerClassName="flex  ml-4 md:mt-0 mt-2 min-w-full md:mb-[50px] flex "
         renderItem={({ item }) => (
           <RenderItem _id={item._id} title={item.title} image={item.image} />
         )}
@@ -150,11 +162,8 @@ const [congrats, setCongrats] = useState([])
       />
 
       <HomeCards title="Congrats" data={congrats} />
-      <HomeCards
-        title="Netflix & Chill"
-        data={productData.reverse()}
-      />
-      <HomeCards title="Thank You" data={congrats} /> 
+      <HomeCards title="Netflix & Chill" data={productData.reverse()} />
+      <HomeCards title="Thank You" data={congrats} />
     </ScreenScrollView>
   )
 }

@@ -1,5 +1,5 @@
 'use client'
-import { Text, View, Image } from "react-native"
+import { Text, View, Image, Pressable } from "react-native"
 import { FC, ReactNode, useState } from "react"
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { MotiLink } from 'solito/moti/app'
@@ -23,11 +23,7 @@ const buttons = [
     name: 'Home',
     href: '/'
   },
-  {
-    id: 'second',
-    name: 'Search',
-    href: '/search'
-  },
+
   {
     id: 'third',
   name: 'Feed',
@@ -35,10 +31,8 @@ const buttons = [
   },
   {
     id: 'fourth',
-    name: 'Specials',
-    href: '/specials'
-
-  
+    name: 'Orders',
+    href: '/orders'
   }
 ]
 
@@ -108,6 +102,37 @@ const SideBar: FC<any> = (props) => {
           style={{ zIndex: 1000, height: '100vh' }}
           className="duration-400 fixed  bottom-0 right-0 top-0 w-screen  max-w-[400px] flex-1  space-y-2 border-l-[0.5px]  bg-zinc-100 pt-[130px] opacity-100 ease-in-out"
         >
+          <View className="absolute left-[20px] top-[90px] w-full flex-row justify-between">
+            <View className=" flex-row items-center ">
+              <Pressable
+                href="/studio"
+                className=" h-[50px] w-[50px] overflow-hidden rounded-full border-[1px] border-neutral-950 hover:opacity-[80%] "
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="User Avatar"
+                  style={{ aspectRatio: 4 / 4, width: 50, height: 50 }}
+                />
+              </Pressable>
+              <Text className="ml-3 text-xl font-bold text-black">Mike</Text>
+            </View>
+            <View className="flex-row items-center">
+              <img
+                alt="settings"
+                style={{
+                  height:30,
+                  width: 30,
+                  marginRight:35
+                }}
+                src="https://www.svgrepo.com/show/511122/settings.svg"
+              />
+              {/* <Text className=" text-md mr-[35px]  text-black">
+                View Profile
+              </Text> */}
+            </View>
+          </View>
+
+          <View style={{ marginTop: 40 }} className="relative mt-[100px]" />
           {buttons.map((button: any, idx: number) => (
             <>
               <ButtonLink
@@ -120,7 +145,7 @@ const SideBar: FC<any> = (props) => {
                 }}
               >
                 <Text
-                  className={`ml-[60px] text-[18px] font-bold leading-10 tracking-wide lg:flex  ${active ? 'text-[#2b089f] ' : 'text-black'}`}
+                  className={`ml-[50px] text-[18px] font-bold leading-10 tracking-wide lg:flex  ${active ? 'text-[#2b089f] ' : 'text-black'}`}
                 >
                   {button.name}
                 </Text>

@@ -6,6 +6,7 @@
     "moti": "latest",
     "nativewind": "4.0.36",
     "react-responsive-carousel": "^3.2.23",
+    "react-star-rating-component": "^1.4.1",
     "solito": "^4.2.2"
   },
   "sideEffects": false

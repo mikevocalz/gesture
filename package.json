@@ -37,6 +37,7 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "latest",
     "next-sanity": "latest",
-    "sanity": "latest"
+    "sanity": "latest",
+    "swiper": "^11.1.1"
   }
 }

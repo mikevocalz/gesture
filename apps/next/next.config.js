@@ -74,7 +74,11 @@ const nextConfig = {
     '@portabletext/react-native',
     '@portabletext/react',
     '@sanity/vision',
-    'sanity'
+    'sanity',
+    'swiper',
+    'swiper/react',
+    'swiper/modules',
+    '@kolking/react-native-rating'
   ],
 
 

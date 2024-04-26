@@ -1,6 +1,10 @@
 /** @jsxImportSource react */
 import './globals.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
 import { StylesProvider } from './styles-provider'
 import { ReactNode } from 'react'
 import { Provider } from "app/provider";
@@ -26,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+          <link rel="icon" href="/favicon.ico" sizes="any" />
         <StylesProvider>
           <Provider>
             <NextTopLoader

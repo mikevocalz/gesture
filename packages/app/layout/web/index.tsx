@@ -16,12 +16,12 @@ function WebLayout({ children }): ReactElement<ReactNode> {
   const pathname = usePathname()
 
   return (
-    <Div className=" flex min-h-full w-screen bg-gray-100 pt-[72px]">
-     <WebHeader />
+    <Div className=" flex-1 h-full w-screen bg-gray-100 pt-[72px] ">
+      <WebHeader />
 
-      <Main className="-z-40 flex-1">{children}</Main>
-
- 
+      <Main className="no-scrollbar -z-40 min-h-[100vh] h-full container self-center ">
+        {children}
+      </Main>
       <WebFooter />
     </Div>
   )

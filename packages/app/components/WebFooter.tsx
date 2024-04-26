@@ -5,8 +5,8 @@ import GestureLogo from 'app/components/svgs/GestureLogo';
 
 const WebFooter = () => {
   return (
-    <Footer className="relative inset-x-0 bottom-0 left-0  right-0 w-full bg-fuchsia-900 sm:p-0">
-      <div className=" items-center border-t-[0.5px]   bg-gray-200  sm:p-0">
+    <Footer className="relative bottom-0  left-0 right-0  bg-fuchsia-900 sm:p-0">
+      <div className=" items-center border-t-[0.5px]   bg-gray-300  sm:p-0">
         <div className="mx-auto w-full max-w-7xl flex-1 justify-between  px-10 py-6 md:flex">
           <div className=" mb-6 md:mb-0">
             <a
@@ -23,7 +23,26 @@ const WebFooter = () => {
               />
             </a>
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-[50px] sm:mt-0 sm:gap-8">
+
+          <div className="mt-8 grid grid-cols-1 gap-[50px] sm:mt-0 sm:gap-8 md:grid-cols-3 md:space-x-3">
+            {/* Connect Section */}
+            <div>
+              <h2 className="mb-6  font-[BebasNeue-Bold] text-2xl font-semibold uppercase tracking-wide text-[#2b089f] md:text-3xl">
+                Gesture Business
+              </h2>
+              <ul className="text-gray-800 ">
+                <li className="mb-4">
+                  <a>B2B Gifting</a>
+                </li>
+                <li className="mb-4">
+                  <a>Gesture Merchants</a>
+                </li>
+                <li className="mb-4">
+                  <a>Gesture for Business</a>
+                </li>
+              </ul>
+            </div>
+
             {/* Connect Section */}
             <div>
               <h2 className="mb-6  font-[BebasNeue-Bold] text-2xl font-semibold uppercase tracking-wide text-[#2b089f] md:text-3xl">
@@ -49,6 +68,14 @@ const WebFooter = () => {
               <ul className="text-gray-800 ">
                 <li className="mb-4">
                   <a
+                    href="https://www.linkedin.com/company/gogesture/"
+                    className="hover:underline"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a
                     href="https://www.facebook.com/sendagesture"
                     className="hover:underline"
                   >
@@ -61,6 +88,14 @@ const WebFooter = () => {
                     className="hover:underline"
                   >
                     Instagram
+                  </a>
+                </li>
+                <li className="mb-4">
+                  <a
+                    href="http://www.twitter.com/sendagesture"
+                    className="hover:underline"
+                  >
+                    Twitter
                   </a>
                 </li>
               </ul>

@@ -31,14 +31,14 @@ export default function HomeCards({ title, data }: HomeCardProps) {
 
     let title = item.text
     let img1 = item.img
-    
+
     router.push(`/product/${productID}`, { productID })
   }
 
   const renderMovieCards = ({ item, index }) => {
     return (
       <Pressable
-        className="max-h-[220px] flex-1 rounded-xl bg-zinc-100 drop-shadow-md hover:scale-105 md:max-h-[440px] md:w-[360px] "
+        className="max-h-[220px] flex-1 overflow-hidden rounded-xl bg-zinc-100 drop-shadow-md hover:scale-105 md:max-h-[440px] md:w-[360px] "
         onPress={() => onPress(item)}
       >
         <Image

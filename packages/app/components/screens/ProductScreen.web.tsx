@@ -132,7 +132,7 @@ export default function ProductScreen({ route , heroImages}) {
               <H4 style={{marginTop: 20 }}  className="text-gray-700">4 Ratings</H4>
             </View>
               <View className="h-[30px] w-[1px] bg-gray-500 invisible md:visible" />
-              <H3 className="relative rounded-md ml-[90px] bg-[#46c4f6] px-3 py-1 text-sm font-bold text-white">
+              <H3 className="relative drop-shadow-xl rounded-md ml-[90px] bg-[#46c4f6] px-3 py-1 text-sm font-bold text-white">
                 Gesture Recommended
               </H3>
             </View>
@@ -161,7 +161,7 @@ export default function ProductScreen({ route , heroImages}) {
             </View>
 
             <View className="mb-3 w-full space-y-3">
-              <P className="text-lg">
+              <P className="text-md leading-6 font-bold">
                 Send this amazing treat to a special something, let them have
                 their cake and eat it too. Cakes in this category will be:{' '}
               </P>
@@ -193,7 +193,7 @@ export default function ProductScreen({ route , heroImages}) {
             <View className="my-4 h-[1px] w-full bg-gray-500" />
 
             <View className="flew-row w-full space-x-3">
-              <Pressable className="my-5 w-full items-center rounded-xl bg-[#2b089f] py-3 md:w-[360px] md:py-[10px]">
+              <Pressable className="my-5 hover:scale-105 drop-shadow-xl w-full items-center rounded-xl bg-[#2b089f] py-3 md:w-[300px] md:py-[10px]">
                 <Text className="text-xl font-bold text-white">
                   Pick This Gesture
                 </Text>

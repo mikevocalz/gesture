@@ -26,7 +26,9 @@ export default function HomeCards({ title, data }: HomeCardProps) {
 
   const onPress = (item: any) => {
     //navigation.navigate('two', { occassionData })
-    let productID = item.id
+    //let productID = item.id
+        let productID = 'german-choc'
+
     let title = item.text
     let img1 = item.img
 

@@ -44,7 +44,7 @@ export default function HomeCards({ title, data }: HomeCardProps) {
   const renderMovieCards = ({ item, index }) => {
     return (
       <Pressable
-        className=" flex-1 overflow-hidden rounded-xl bg-zinc-100 drop-shadow-md hover:scale-105 h-[260px] w-[180px] md:h-[440px] md:w-[360px] "
+        className=" flex-1 overflow-hidden rounded-xl bg-zinc-100 drop-shadow-md hover:scale-105 h-[220px] w-[160px] md:h-[440px] md:w-[360px] "
         onPress={() => onPress(item)}
       >
         {/* <Image
@@ -64,8 +64,8 @@ export default function HomeCards({ title, data }: HomeCardProps) {
           height={isSmall ? 360 : 390}
           style={{
            display: 'flex',
-           borderTopRightRadius: 20,
-           borderTopLeftRadius: 20,
+           borderTopRightRadius: 10,
+           borderTopLeftRadius: 10,
           width:isSmall ? 160 : 360,
           height: isSmall ? 180 : 390,
           //aspectRatio: 3/4

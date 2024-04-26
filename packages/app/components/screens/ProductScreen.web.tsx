@@ -120,7 +120,7 @@ export default function ProductScreen({ route , heroImages}) {
               {title || 'German Chocolate Cake'}
             </h1>
             <View style={{}} className="my-0 flex md:h-7  md:my-3  flex-wrap flex-row md:flex-row md:space-y-0 space-y-3 items-center space-x-3 ">
-              <View className='flex-row flex h-4 space-x-2 mt-3 items-center'>
+              <View className='flex-row flex h-4 space-x-2 mt-3 md:mt-0 items-center'>
               <StarRatingComponent
                 name="rate1"
                 starCount={5}

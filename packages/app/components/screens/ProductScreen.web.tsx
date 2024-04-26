@@ -115,28 +115,29 @@ export default function ProductScreen({ route , heroImages}) {
         </View>
 
         <View className=" container flex h-full max-h-full w-full items-center rounded-xl px-2  pb-[60px] pl-[10px] lg:mt-0 lg:h-auto lg:w-[40%] lg:flex-none">
-          <Div className="relative -my-10 mb-4 w-full  items-start md:my-0">
+          <Div className="relative -my-10 mb-4 w-full flex-wrap md:my-0">
             <h1 className="text-left  text-3xl font-bold text-gray-900">
               {title || 'German Chocolate Cake'}
             </h1>
-            <View className="my-3 h-8 flex-row items-center space-x-3">
+            <View style={{}} className="my-0 flex md:h-7  md:my-3  flex-wrap flex-row md:flex-row md:space-y-0 space-y-3 items-center space-x-3 ">
+              <View className='flex-row flex h-4 space-x-2 mt-3 items-center'>
               <StarRatingComponent
                 name="rate1"
                 starCount={5}
                 value={rating}
                 starColor="#fdbf2e"
                 onChange={handleChange}
+      
               />
-              <H4 className="text-gray-700">4 Ratings</H4>
-              <View className="h-[30px] w-[1px] bg-gray-500" />
-              <H3 className="rounded-md bg-[#46c4f6] px-3 py-1 text-sm font-bold text-white">
+              <H4 style={{marginTop: 20 }}  className="text-gray-700">4 Ratings</H4>
+            </View>
+              <View className="h-[30px] w-[1px] bg-gray-500 invisible md:visible" />
+              <H3 className="relative rounded-md ml-[90px] bg-[#46c4f6] px-3 py-1 text-sm font-bold text-white">
                 Gesture Recommended
               </H3>
             </View>
 
-            <View
-              style={{ flexDirection: 'row' }}
-              className="flew-row mt-2 flex w-full items-center justify-between space-x-3 px-2"
+            <View className="flex-row mt-2 flex w-full items-center justify-between space-x-3 px-2"
             >
               <Text className="my-2 text-2xl font-bold text-black">
                 ${price || '49.99'}

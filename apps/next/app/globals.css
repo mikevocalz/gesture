@@ -96,11 +96,13 @@ body {
 .swiper-slide {
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 
 .mySwiper2 {
   height: 80%;
   width: 100%;
+  border-radius: 12;
 }
 
 .mySwiper {
@@ -113,6 +115,7 @@ body {
   width: 25%;
   height: 100%;
   opacity: 0.8;
+    border-radius: 12;
 }
 
 .mySwiper .swiper-slide-thumb-active {

@@ -1,10 +1,9 @@
 import React, {useState, useRef} from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-
 import { Div } from '@expo/html-elements'
 import { FreeMode, Navigation, Thumbs, Controller } from 'swiper/modules'
+import { SolitoImage } from 'solito/image'
 
-// install Swiper modules
 
 const ImageThumbCarousel = ({ heroImages }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
@@ -25,7 +24,14 @@ const ImageThumbCarousel = ({ heroImages }) => {
       >
         {heroImages?.map((item, idx) => (
           <SwiperSlide key={idx}>
-            <img src={item} />
+            <SolitoImage
+              priority
+              contentFit="cover"
+              src={item}
+              width={400}
+              height={300}
+              style={{ borderRadius: 13 }}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -40,7 +46,14 @@ const ImageThumbCarousel = ({ heroImages }) => {
       >
         {heroImages?.map((item, idx) => (
           <SwiperSlide>
-            <img src={item} />
+            <SolitoImage
+              priority
+              src={item}
+              width={200}
+              height={80}
+              contentFit="cover"
+              style={{ borderRadius: 8 }}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

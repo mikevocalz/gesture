@@ -1,4 +1,4 @@
-import { View, Text, Dimensions,ImageBackground } from 'react-native'
+import { View, Text, Dimensions, ImageBackground} from 'react-native'
 import React from 'react'
 import { Carousel } from 'react-responsive-carousel';
 import { SolitoImage } from 'solito/image';

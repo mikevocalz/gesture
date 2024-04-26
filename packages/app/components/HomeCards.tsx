@@ -9,18 +9,24 @@ import {
   TouchableOpacity,
   View,
   Pressable,
+  Dimensions,
 } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useRouter } from 'solito/navigation'
+import { SolitoImage  } from 'solito/image'
+
 
 interface HomeCardProps {
   title: string
   data: any
 }
 
+const {width } = Dimensions.get('window')
 export default function HomeCards({ title, data }: HomeCardProps) {
   //const navigation = useNavigation()
+
+  const isSmall = width < 479;
 
   const router = useRouter()
 
@@ -38,18 +44,34 @@ export default function HomeCards({ title, data }: HomeCardProps) {
   const renderMovieCards = ({ item, index }) => {
     return (
       <Pressable
-        className="max-h-[220px] flex-1 overflow-hidden rounded-xl bg-zinc-100 drop-shadow-md hover:scale-105 md:max-h-[440px] md:w-[360px] "
+        className=" flex-1 overflow-hidden rounded-xl bg-zinc-100 drop-shadow-md hover:scale-105 h-[260px] w-[180px] md:h-[440px] md:w-[360px] "
         onPress={() => onPress(item)}
       >
-        <Image
+        {/* <Image
           alt={'image-1'}
           resizeMode="cover"
-          className="flex h-[180px]  w-[160px] rounded-t-xl md:h-[380px] md:w-[360px]"
+          className="flex h-[180px] w-[160px] rounded-t-xl md:h-[380px] md:w-[360px]"
           source={{
             uri: item.image,
           }}
+        /> */}
+        <SolitoImage
+          alt={'image-1'}
+          contentFit="cover"
+          src={item.image}
+          priority
+          width={isSmall ? 160 : 180}
+          height={isSmall ? 360 : 390}
+          style={{
+           display: 'flex',
+           borderTopRightRadius: 20,
+           borderTopLeftRadius: 20,
+          width:isSmall ? 160 : 360,
+          height: isSmall ? 180 : 390,
+          //aspectRatio: 3/4
+          }}
         />
-        <View className="w-[160px]max-h-[100px] z-40 flex-row justify-center justify-between  rounded-b-xl p-2 md:w-[360px]  md:p-5">
+        <View className="w-[160px] max-h-[100px] z-40 flex-row justify-center justify-between  rounded-b-xl p-2 md:w-[360px]  md:p-5">
           <Text numberOfLines={1} className="w-[90px] font-medium md:w-[200px]">
             {item.name}
           </Text>

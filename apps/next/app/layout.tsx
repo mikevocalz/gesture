@@ -11,6 +11,7 @@ import { Provider } from "app/provider";
 import WebLayout from 'app/layout/web'
 import NextTopLoader from 'nextjs-toploader';
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata: Metadata = {
   title: 'Gesture',
@@ -30,7 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-          <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <Analytics />
         <StylesProvider>
           <Provider>
             <NextTopLoader

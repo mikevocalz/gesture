@@ -106,7 +106,6 @@ const sqHeight = pWidth < 768 ? 400 : 600
         renderItem={({ item }: any) => (
           <View className="h-full max-h-[580px] w-full max-w-7xl items-center bg-red-800 ">
             <SolitoImage
-              unoptimized
               key={String(item.id)}
               priority
               height={sqHeight}

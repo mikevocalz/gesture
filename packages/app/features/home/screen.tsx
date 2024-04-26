@@ -118,7 +118,6 @@ export function HomeScreen() {
         <SolitoImage
           alt={String(_id)}
           priority
-          unoptimized
           className="flex h-[1115px] w-[115px] md:h-[176px] md:w-[176px] "
           contentFit="cover"
           src={image}

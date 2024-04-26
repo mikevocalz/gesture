@@ -7,10 +7,12 @@ import {
   FlatList,
   Dimensions,
   ScrollView,
+  StyleSheet,
   Image,
   ImageBackground,
   Pressable,
   Platform,
+  ActivityIndicator,
 } from 'react-native'
 import { ScreenScrollView } from 'app/components/ScreenScrollView'
 import { Span, H1 } from '@expo/html-elements'
@@ -18,7 +20,7 @@ import HomeCards from 'app/components/HomeCards'
 import { Button } from 'app/components/Button'
 import { SolitoImage } from 'solito/image'
 import { useRouter } from 'solito/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 //import { useRouter } from 'solito/router'
 import {urlFor} from '../../../../apps/expo/utils/helpers'
 import HeroWeb from '../../components/hero/hero.web'
@@ -27,6 +29,9 @@ import Hero from '../../components/hero/hero.native'
 import { createClient } from '@sanity/client'
 import { config } from 'app/sanity/sanityClient.web';
 import { categoryQuery, congratsQuery, heroQuery, productQuery } from 'app/sanity/queries';
+import { MotiView,  } from 'moti';
+import { Skeleton } from 'moti/skeleton'
+
 
 type HomeProps = {
   title?: string,
@@ -35,6 +40,8 @@ type HomeProps = {
 }
 
 
+
+const Spacer = ({ height = 16 }) => <View style={{ height }} />
 
 export function HomeScreen() {
   const { width } = Dimensions.get('screen')
@@ -49,6 +56,9 @@ export function HomeScreen() {
   const [categories, setCategories] = useState([])
 const [congrats, setCongrats] = useState([])
 
+  const [dark, toggle] = useReducer((s) => !s, false)
+
+  const colorMode = dark ? 'dark' : 'light'
 
 
 async function callApi() {
@@ -124,6 +134,63 @@ async function callApi() {
       </Text>
     </View>
   )
+ 
+
+    if (productData.length === 0  && heroData.length === 0){
+    return (
+      <View className="min-h-full w-full max-w-7xl overflow-hidden items-center self-center bg-zinc-100">
+        <MotiView
+          transition={{
+            type: 'timing',
+          }}
+          style={[styles.container, styles.padded]}
+          animate={{ backgroundColor: '#fff' }}
+        >
+          <Skeleton
+            radius={16}
+            colorMode={colorMode}
+            height={300}
+            width={'100%'}
+          />
+          <Spacer height={10} />
+          <Skeleton colorMode={colorMode} width={250} height={8} />
+          <Spacer height={5} />
+          <Skeleton colorMode={colorMode} width={'100%'} height={8} />
+          <Spacer height={5} />
+          <Skeleton colorMode={colorMode} width={'100%'} height={8} />
+          <Spacer height={5} />
+          <Skeleton colorMode={colorMode} width={'100%'} height={8} />
+          <Spacer height={20} />
+
+          <View className="flex-row space-x-5">
+            {[0, 1, 2, 3, 4, 5].map((item, idx) => (
+              <Skeleton
+                key={idx}
+                colorMode={colorMode}
+                width={190}
+                height={190}
+              />
+            ))}
+          </View>
+
+          <Spacer height={20} />
+          <Skeleton colorMode={colorMode} width={'30%'} height={16} />
+          <Spacer height={10} />
+
+          <View className="flex-row space-x-5">
+            {[0, 1, 2, 3, 4, 5].map((item, idx) => (
+              <Skeleton
+                key={idx}
+                colorMode={colorMode}
+                width={190}
+                height={290}
+              />
+            ))}
+          </View>
+        </MotiView>
+      </View>
+    )
+  }
 
   return (
     <ScreenScrollView
@@ -167,3 +234,23 @@ async function callApi() {
     </ScreenScrollView>
   )
 }
+
+
+const styles = StyleSheet.create({
+  shape: {
+    justifyContent: 'center',
+    height: 250,
+    width: 250,
+    borderRadius: 25,
+    marginRight: 10,
+    backgroundColor: 'white',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    width:'100%'
+  },
+  padded: {
+    padding: 16,
+  },
+})

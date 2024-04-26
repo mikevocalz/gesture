@@ -46,6 +46,16 @@ name: 'products',
       title: 'Description',
       type: 'text',
     },
+     {
+      name: 'details',
+      title: 'Details',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
     {
       name: 'averageRating',
       title: 'Average Rating',

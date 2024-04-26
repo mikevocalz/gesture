@@ -1,27 +1,34 @@
+import categories from 'app/sanity/schemaTypes/categories';
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 
 export type SanityStoreState = {
-hero: string
-products: string
-categories:string
-}
-
+  hero: any;
+  products: any;
+  categories: any;
+  congrats: any;
+};
 
 export type Actions = {
-  addTask: (title: string, description?: string) => void
-  dragTask: (id: string | null) => void
-  removeTask: (title: string) => void
+  addProducts: (product: any) => void; ///add types for this later
+  addCategories: (category: any) => void; ///add types for this later
+addHero: (heroes: any) => void; ///add types for this later
+ addCongrats: (congrat: any) => void; ///add types for this later
 }
 
-export const useTaskStore = create<SanityStoreState & Actions>()(
-  persist(
-    set => ({
+export const useSanityStore = create<SanityStoreState & Actions>()( persist((set,get) => ({
       products: [],
       categories: [],
-      hero:[]
+      hero:[],
+      congrats:[],
+     addProducts: (product) => set(state => ({ products:  product})),
+     addHero: (heroes) => set(state => ({ hero:  heroes })),
+     addCategories: (category) => set(state => ({ categories: category })),
+     addCongrats: (congrat) => set(state => ({ congrats: congrat })),
     }),
-    { name: 'task-store', skipHydration: true }
+    { name: 'sanity-store', 
+    skipHydration: true 
+  }
   )
 )

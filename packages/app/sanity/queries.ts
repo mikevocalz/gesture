@@ -26,8 +26,9 @@ export const categoryQuery = `*[_type == "categories"] {
 }`;
 
 export const congratsQuery = ` *[_type == "products" && "Congrats" in categories[]->title]{
+  _id,
   name,
-   "image": image.asset->url,
+  "image": image.asset->url,
   price,
   quantity,
   description,

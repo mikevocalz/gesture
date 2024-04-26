@@ -49,11 +49,11 @@ export function WebHeader() {
   return (
     <Header className="headingNav fixed inset-x-0 right-0 top-0">
       <View className="sticky left-0 right-0 top-0  z-30 flex h-[80px] w-full flex-1 items-center justify-center bg-gray-100  drop-shadow-xl ">
-        <View className=" w-screen max-w-7xl flex-row justify-between pr-2">
+        <View className=" w-screen max-w-7xl flex-row justify-between pr-0">
           <View className="ml-1 flex items-center justify-center ">
             <Link href="/">
               <Pressable className="relative ml-2 h-[70px] cursor-pointer transition hover:opacity-90">
-                <GestureLogo width={180} height={74} />
+                <GestureLogo width={160} height={60} />
               </Pressable>
             </Link>
           </View>

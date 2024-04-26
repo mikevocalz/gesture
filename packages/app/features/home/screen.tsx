@@ -31,6 +31,7 @@ import { config } from 'app/sanity/sanityClient.web';
 import { categoryQuery, congratsQuery, heroQuery, productQuery } from 'app/sanity/queries';
 import { MotiView,  } from 'moti';
 import { Skeleton } from 'moti/skeleton'
+import { useSanityStore } from 'app/store/sanityStore';
 
 
 type HomeProps = {
@@ -51,18 +52,23 @@ export function HomeScreen() {
 
 
 
-  const [productData, setProductData] = useState([])
-  const [heroData, setHeroData] = useState([])
-  const [categories, setCategories] = useState([])
-const [congrats, setCongrats] = useState([])
+//   const [productData, setProductData] = useState([])
+//   const [heroData, setHeroData] = useState([])
+//   const [categories, setCategories] = useState([])
+// const [congrats, setCongrats] = useState([])
+
+
+
 
   const [dark, toggle] = useReducer((s) => !s, false)
 
   const colorMode = dark ? 'dark' : 'light'
 
+    const {  addCategories, addHero, addProducts, addCongrats } = useSanityStore()
 
-async function callApi() {
-
+   
+   
+    async function callApi() {
     const client = createClient(config)
 
     const congrats = await client.fetch(congratsQuery)
@@ -70,21 +76,31 @@ async function callApi() {
     const hero = await client.fetch(heroQuery)
     const categories = await client.fetch(categoryQuery)
 
-
-    setProductData(products)
-    setHeroData(hero)
-    setCategories(categories)
-    setCongrats(congrats)
-
-    //console.log('response', data.products)
+    // setProductData(products)
+    // setHeroData(hero)
+    // setCategories(categories)
+    // setCongrats(congrats)
+     addCongrats(congrats);
+    addCategories(categories) ;
+    addHero(hero);
+    addProducts(products)
   }
 
   useEffect(() => {
     callApi()
   }, [])
 
+   
 
-  const heroImages = heroData.filter((img:any) => img.image)
+  const products = useSanityStore().products
+  const categories = useSanityStore().categories
+  const congrats = useSanityStore().congrats
+  const hero = useSanityStore().hero
+
+  console.log('products store: ', hero)
+
+
+  const heroImages = hero.filter((img:any) => img.image)
   //console.log('me: ', heroImages)
 
   const { push } = useRouter()
@@ -92,7 +108,7 @@ async function callApi() {
   const RenderItem = ({ title, image, _id }: HomeProps) => (
     <Pressable
       className="flex h-[115px] max-h-[300px] drop-shadow-md hover:scale-105"
-      onPress={() => push('/two')}
+      onPress={() => push('/orders')}
     >
       <View
         className={
@@ -136,7 +152,7 @@ async function callApi() {
   )
  
 
-    if (productData.length === 0  && heroData.length === 0){
+    if (products.length === 0  && hero.length === 0){
     return (
       <View className="min-h-full w-full max-w-7xl overflow-hidden items-center self-center bg-zinc-100">
         <MotiView
@@ -229,7 +245,7 @@ async function callApi() {
       />
 
       <HomeCards title="Congrats" data={congrats} />
-      <HomeCards title="Netflix & Chill" data={productData.reverse()} />
+      <HomeCards title="Netflix & Chill" data={products.reverse()} />
       <HomeCards title="Thank You" data={congrats} />
     </ScreenScrollView>
   )

@@ -2,11 +2,11 @@
 
 import React, {useState, useLayoutEffect, useEffect, useCallback } from 'react'
 import { ScreenScrollView } from '../ScreenScrollView'
-import { useParams, useSearchParams } from 'solito/navigation'
+import { useParams, useRouter, useSearchParams } from 'solito/navigation'
+
 import { View, Text, Dimensions, Pressable, Platform, ImageBackground } from 'react-native'
 import { SolitoImage } from 'solito/image'
 import { Link } from 'solito/link'
-import { useRouter } from 'solito/navigation'
 
 import { useNavigation } from 'expo-router'
 import { Carousel } from 'react-responsive-carousel'
@@ -20,13 +20,12 @@ import StarRatingComponent from 'react-star-rating-component'
 import {H4,H3, H2, Div, Span, A , P} from '@expo/html-elements'
 import Review from '../Review'
 import {reviews} from 'app/utils/reviewData'
+import { useSanityStore } from 'app/store/sanityStore'
 
-const useUserParams = useParams<{
-  id: number
-  name: string
-  title: string
-  images: any
-}>
+
+
+const useUserParams = useParams<{ productID: string }>
+
 
 const imagesData = [
   {
@@ -43,8 +42,8 @@ const imagesData = [
   },
 ]
 
-export default function ProductScreen({ route , heroImages}) {
-  const { name, title, id, images } = useUserParams()
+export default function ProductScreen({ route ,  heroImages}) {
+  const {  productID } = useUserParams()
 
   const isWeb = Platform.OS === 'web'
 
@@ -64,6 +63,11 @@ export default function ProductScreen({ route , heroImages}) {
   )
 
   let price
+
+  const productInfo = useSanityStore().products
+  
+   const product =  productInfo.find((p) => p._id === productID);
+   console.log('im products: ', product)
 
   return (
     <ScreenScrollView
@@ -108,17 +112,17 @@ export default function ProductScreen({ route , heroImages}) {
           ))}
         </Carousel>
       </View> */}
-
       <View className=" w-full  max-w-7xl flex-col justify-between  px-3 pt-8 lg:flex-row">
         <View className="P-4 max-h-full w-full rounded-t-[30px] pb-[60px] lg:h-auto  lg:w-[58%] lg:flex-none">
-          <ImageThumbCarousel heroImages={imagesData} />
+          <ImageThumbCarousel heroImages={product?.images} />
         </View>
 
         <View className=" container flex h-full max-h-full w-full items-center rounded-xl px-2  pb-[60px] pl-[10px] lg:mt-0 lg:h-auto lg:w-[40%] lg:flex-none">
           <Div className="relative -my-10 mb-4 w-full flex-wrap md:my-0">
             <h1 className="text-left  text-3xl font-bold text-gray-900">
-              {title || 'German Chocolate Cake'}
+              {product?.name || 'German Chocolate Cake'}
             </h1>
+            <Text className='mt-3'>{product?.description }</Text>
             <View style={{}} className="my-0 flex md:h-7  md:my-3  flex-wrap flex-row md:flex-row md:space-y-0 space-y-3 items-center space-x-3 ">
               <View className='flex-row flex h-4 space-x-2 mt-3 md:mt-0 items-center'>
               <StarRatingComponent
@@ -140,7 +144,7 @@ export default function ProductScreen({ route , heroImages}) {
             <View className="flex-row mt-2 flex w-full items-center justify-between space-x-3 px-2"
             >
               <Text className="my-2 text-2xl font-bold text-black">
-                ${price || '49.99'}
+                ${product?.price || '49.99'}
               </Text>
 
               <Pressable
@@ -163,7 +167,7 @@ export default function ProductScreen({ route , heroImages}) {
             <View className="mb-3 w-full space-y-3">
               <P className="text-md leading-6 font-bold">
                 Send this amazing treat to a special something, let them have
-                their cake and eat it too. Cakes in this category will be:{' '}
+                their cake and eat it too. Cakes in this category will be:
               </P>
 
               <A>
@@ -214,7 +218,9 @@ export default function ProductScreen({ route , heroImages}) {
         </View>
       </View>
 
-      <View className="mb-10 mt-4 flex w-full pb-[300px]">
+
+      <View className="mb-10 px-4 mt-4 flex w-full pb-[300px]">
+        <H3>Reviews:</H3>
         {reviews.map((review, idx) => (
           <Review
             key={idx}

@@ -25,7 +25,7 @@ const ImageThumbCarousel = ({ heroImages }) => {
       >
         {heroImages.map((item, idx) => (
           <SwiperSlide key={idx}>
-            <img src={item.src} />
+            <img src={item} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -40,7 +40,7 @@ const ImageThumbCarousel = ({ heroImages }) => {
       >
         {heroImages.map((item, idx) => (
           <SwiperSlide>
-            <img src={item.src} />
+            <img src={item} />
           </SwiperSlide>
         ))}
       </Swiper>

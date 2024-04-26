@@ -27,12 +27,12 @@ export default function HomeCards({ title, data }: HomeCardProps) {
   const onPress = (item: any) => {
     //navigation.navigate('two', { occassionData })
     //let productID = item.id
-        let productID = 'german-choc'
+    let productID = item._id
 
     let title = item.text
     let img1 = item.img
 
-    router.push(`/product/${productID}`,{item: item} )
+    router.push(`/product/${productID}`, { productID })
   }
 
   const renderMovieCards = ({ item, index }) => {

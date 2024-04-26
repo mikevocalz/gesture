@@ -46,6 +46,11 @@ name: 'products',
       title: 'Description',
       type: 'text',
     },
+      {
+      name: 'tagline',
+      title: 'Tagline',
+      type: 'text',
+    },
      {
       name: 'details',
       title: 'Details',

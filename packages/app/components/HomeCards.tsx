@@ -31,7 +31,7 @@ export default function HomeCards({ title, data }: HomeCardProps) {
 
     let title = item.text
     let img1 = item.img
-
+    
     router.push(`/product/${productID}`, { productID })
   }
 

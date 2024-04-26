@@ -115,37 +115,19 @@ export default function ProductScreen({ route ,  heroImages}) {
       <View className=" w-full  max-w-7xl flex-col justify-between  px-3 pt-8 lg:flex-row">
         <View className="P-4 max-h-full w-full rounded-t-[30px] pb-[60px] lg:h-auto  lg:w-[58%] lg:flex-none">
           <ImageThumbCarousel heroImages={product?.images} />
+          <View className="w-full px-2 mb-5">
+            <P className="text-md font-bold leading-6">
+              {product?.tagline}
+            </P>
+          </View>
         </View>
 
         <View className=" container flex h-full max-h-full w-full items-center rounded-xl px-2  pb-[60px] pl-[10px] lg:mt-0 lg:h-auto lg:w-[40%] lg:flex-none">
           <Div className="relative -my-10 mb-4 w-full flex-wrap md:my-0">
-            <h1 className="text-left  text-3xl font-bold text-gray-900">
-              {product?.name || 'German Chocolate Cake'}
-            </h1>
-            <Text className='mt-3'>{product?.description }</Text>
-            <View style={{}} className="my-0 flex md:h-7  md:my-3  flex-wrap flex-row md:flex-row md:space-y-0 space-y-3 items-center space-x-3 ">
-              <View className='flex-row flex h-4 space-x-2 mt-3 md:mt-0 items-center'>
-              <StarRatingComponent
-                name="rate1"
-                starCount={5}
-                value={rating}
-                starColor="#fdbf2e"
-                onChange={handleChange}
-      
-              />
-              <H4 style={{marginTop: 20 }}  className="text-gray-700">4 Ratings</H4>
-            </View>
-              <View className="h-[30px] w-[1px] bg-gray-500 invisible md:visible" />
-              <H3 className="relative drop-shadow-xl rounded-md ml-[90px] bg-[#46c4f6] px-3 py-1 text-sm font-bold text-white">
-                Gesture Recommended
-              </H3>
-            </View>
-
-            <View className="flex-row mt-2 flex w-full items-center justify-between space-x-3 px-2"
-            >
-              <Text className="my-2 text-2xl font-bold text-black">
-                ${product?.price || '49.99'}
-              </Text>
+            <View className="flex-row justify-between">
+              <h1 className="text-left  text-3xl font-bold text-gray-900">
+                {product?.name}
+              </h1>
 
               <Pressable
                 onPress={() => null}
@@ -163,14 +145,47 @@ export default function ProductScreen({ route ,  heroImages}) {
                 </svg>
               </Pressable>
             </View>
+            <Text className="mt-3 text-[15px] leading-7">{product?.description}</Text>
+            <View
+              style={{}}
+              className="my-0 flex flex-row  flex-wrap  items-center space-x-3 space-y-3 md:my-3 md:h-7 md:flex-row md:space-y-0 "
+            >
+              <View className="mt-3 flex h-4 flex-row items-center space-x-2 md:mt-0">
+                <StarRatingComponent
+                  name="rate1"
+                  starCount={5}
+                  value={rating}
+                  starColor="#fdbf2e"
+                  onChange={handleChange}
+                />
+                <H4 style={{ marginTop: 20 }} className="text-gray-700">
+                  4 Ratings
+                </H4>
+              </View>
+              <View className="invisible h-[30px] w-[1px] bg-gray-500 md:visible" />
+              <H3 className="relative ml-[90px] rounded-md bg-[#46c4f6] px-3 py-1 text-sm font-bold text-white drop-shadow-xl">
+                Gesture Recommended
+              </H3>
+            </View>
+
+            <View className="mt-2 flex w-full flex-row items-center justify-between space-x-3 px-2">
+              <Text className="my-2 text-2xl font-bold text-black">
+                ${product?.price || '49.99'}
+              </Text>
+
+              <Pressable className="my-5  w-[250px] items-center rounded-xl bg-[#2b089f] py-3 drop-shadow-xl hover:scale-105 md:w-[220px] md:py-[10px]">
+                <Text className="text-xl font-bold text-white">
+                  Pick This Gesture
+                </Text>
+              </Pressable>
+            </View>
 
             <View className="mb-3 w-full space-y-3">
-              <P className="text-md leading-6 font-bold">
-                Send this amazing treat to a special something, let them have
-                their cake and eat it too. Cakes in this category will be:
-              </P>
+              {/* <P className="text-md font-bold leading-6">
+              Cakes in this category will be:
+              </P> */}
 
-              <A>
+              <A className='mt-6'>
                 - 8"-11", bakery fresh, cake, from a bakery like 'Magnolia
                 Bakery', 'Nothing Bundt Cakes'
               </A>
@@ -197,12 +212,6 @@ export default function ProductScreen({ route ,  heroImages}) {
             <View className="my-4 h-[1px] w-full bg-gray-500" />
 
             <View className="flew-row w-full space-x-3">
-              <Pressable className="my-5 hover:scale-105 drop-shadow-xl w-full items-center rounded-xl bg-[#2b089f] py-3 md:w-[300px] md:py-[10px]">
-                <Text className="text-xl font-bold text-white">
-                  Pick This Gesture
-                </Text>
-              </Pressable>
-
               <View className="mt-3 flex-col space-y-2">
                 <P>
                   NO HIDDEN FEES GUARANTEE NO HIDDEN SURPRISE GUARANTEE. Price
@@ -218,8 +227,7 @@ export default function ProductScreen({ route ,  heroImages}) {
         </View>
       </View>
 
-
-      <View className="mb-10 px-4 mt-4 flex w-full pb-[300px]">
+      <View className="mb-10 mt-4 flex w-full px-4 pb-[300px]">
         <H3>Reviews:</H3>
         {reviews.map((review, idx) => (
           <Review

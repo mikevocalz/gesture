@@ -23,7 +23,7 @@ const ImageThumbCarousel = ({ heroImages }) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        {heroImages.map((item, idx) => (
+        {heroImages?.map((item, idx) => (
           <SwiperSlide key={idx}>
             <img src={item} />
           </SwiperSlide>
@@ -38,7 +38,7 @@ const ImageThumbCarousel = ({ heroImages }) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        {heroImages.map((item, idx) => (
+        {heroImages?.map((item, idx) => (
           <SwiperSlide>
             <img src={item} />
           </SwiperSlide>

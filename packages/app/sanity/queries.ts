@@ -4,6 +4,7 @@ export const productQuery = `*[_type == "products"] {
   name,
   price,
   description,
+  tagline,
   "image": image.asset->url,
   "images": images[].asset->url
 }`;
@@ -34,6 +35,7 @@ export const congratsQuery = ` *[_type == "products" && "Congrats" in categories
   description,
   averageRating,
   ratingsCount,
+  tagline,
   images,
   "categoryTitles": categories[]->title,
   "subCategoryTitles": subcategory[]->title

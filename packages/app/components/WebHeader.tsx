@@ -63,7 +63,7 @@ export function WebHeader() {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'center',
-              marginRight:12
+              marginRight: 8
             }}
           >
             {headerLinks.map((headerLink: any, idx: number) => {

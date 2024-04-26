@@ -81,7 +81,7 @@ async function callApi() {
 
   const RenderItem = ({ title, image, _id }: HomeProps) => (
     <Pressable
-      className="flex h-[115px] max-h-[300px] drop-shadow-md"
+      className="flex h-[115px] max-h-[300px] drop-shadow-md hover:scale-105"
       onPress={() => push('/two')}
     >
       <View
@@ -134,7 +134,7 @@ async function callApi() {
       nestedScrollEnabled={true}
       contentContainerStyle={{ flexGrow: 1 }}
       scrollEnabled
-      contentContainerClassName="md:pb-[300px] flex bg-white items-center"
+      contentContainerClassName="md:pb-[300px] pt-[10px] flex bg-white items-center"
       className="h-full w-full max-w-7xl self-center pb-[300px] "
     >
       {isWeb ? (
@@ -153,7 +153,7 @@ async function callApi() {
         data={categories}
         horizontal={true}
         className="h-[220px] max-h-[280px] w-full  md:h-[300px]"
-        contentContainerClassName="flex  ml-4 md:mt-0 mt-2 min-w-full md:mb-[50px] flex "
+        contentContainerClassName="flex pt-4  ml-4 md:mt-0 mt-2 min-w-full md:mb-[50px] flex "
         renderItem={({ item }) => (
           <RenderItem _id={item._id} title={item.title} image={item.image} />
         )}

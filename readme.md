@@ -59,12 +59,18 @@
 
 - Expo
 - Vercel/Analytics
-- Air Table
 - zustand
 - solito
 - nativewind (tailwind for react native)
+- reanimated
+- gesture handler
+- expo router
+- react-native-svg
+- react-native-reanimated-carousel
+
 ---
-### **_Bakcen_**
+
+### **_Backend_**
 
 - sanity.io
 
@@ -72,7 +78,11 @@
 
 ### **_Resources:_**
 
+##### Expo [Docs:](https://docs.expo.dev/)
+
 ##### NextJS [Docs:](https://nextjs.org/docs)
+
+##### Nativewind [Docs:](https://www.nativewind.dev/v4/getting-started/react-native)
 
 ##### Tailwind [Docs:](https://www.tailwindcss.com/)
 
@@ -81,7 +91,6 @@
 ##### Tailwind CSS [Docs:](https://mui.com/material-ui/getting-started/overview/)
 
 ##### MDN Sheet [Docs:](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
-
 
 ### **_Future Goals:_**
 

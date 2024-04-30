@@ -2,14 +2,7 @@
 
 ### Logo
 
-<p>
-<style>
- p {
-   align:left;
-   background-color: '#fff';
-  padding: 5px
-}
-</style>
+<p style="background-color: white; ">
 <a href="https://www.gesture.vip" target="_blank" rel="noreferrer"> <img src="https://i0.wp.com/gesture.vip/wp-content/uploads/2021/09/Gesture-Logo-Wordmark.png" alt="gesture" width="400" /> </a>
 </p>
 

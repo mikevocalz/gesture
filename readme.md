@@ -52,6 +52,7 @@
 
 - React
 - NEXT.JS
+- Sanity.io
 
 ---
 

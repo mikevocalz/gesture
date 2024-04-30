@@ -8,7 +8,6 @@ import { View, Text, Dimensions, Pressable, Platform, ImageBackground } from 're
 import { SolitoImage } from 'solito/image'
 import { Link } from 'solito/link'
 
-import { useNavigation } from 'expo-router'
 import { Carousel } from 'react-responsive-carousel'
 
 import { FontAwesome } from '@expo/vector-icons'
@@ -22,9 +21,12 @@ import Review from '../Review'
 import {reviews} from 'app/utils/reviewData'
 import { useSanityStore } from 'app/store/sanityStore'
 
+type Params = { 
+  productID: string;
+   myName: string 
+  }
 
-
-const useUserParams = useParams<{ productID: string }>
+const useUserParams = useParams<Params>
 
 
 const imagesData = [
@@ -43,8 +45,10 @@ const imagesData = [
 ]
 
 export default function ProductScreen({ route ,  heroImages}) {
-  const {  productID } = useUserParams()
+  const {  productID, myName } = useUserParams()
 
+  const rams = useUserParams()
+  
   const isWeb = Platform.OS === 'web'
 
   const { width } = Dimensions.get('screen')
@@ -67,7 +71,7 @@ export default function ProductScreen({ route ,  heroImages}) {
   const productInfo = useSanityStore().products
   
    const product =  productInfo.find((p) => p._id === productID);
-   console.log('im products: ', product)
+   console.log('im rams: ', rams)
 
   return (
     <ScreenScrollView
@@ -80,38 +84,8 @@ export default function ProductScreen({ route ,  heroImages}) {
       contentContainerClassName="pb-[700px] md:pb-[300px] flex "
       className="min-h-full w-full max-w-7xl flex-1 items-center self-center bg-slate-100"
     >
-      {/* <View className="mb-[20px] aspect-[16/10] flex-1 max-h-[600px] w-full overflow-hidden rounded-xl">
-        <Carousel
-          showArrows={false}
-          showIndicators
-          showThumbs={false}
-          autoPlay={true}
-          emulateTouch={true}
-          showStatus={false}
-          interval={5000}
-          dynamicHeight={true}
-          infiniteLoop
-          width={'100%'}
-          swipeable
-        >
-          {imagesData?.map((photo, index) => (
-            <ImageBackground
-              key={index}
-              resizeMode="cover"
-              width={pWidth}
-              alt={String(photo.id)}
-              source={photo?.src}
-              style={{
-               // flex: 1,
-                width: '100%',
-                maxWidth: 1280,
-                maxHeight: 600,
-                aspectRatio: 16 / 10,
-              }}
-            />
-          ))}
-        </Carousel>
-      </View> */}
+
+      <Text>Name: {myName}</Text>
       <View className=" w-full  max-w-7xl flex-col justify-between  px-3 pt-8 lg:flex-row">
         <View className="P-4 max-h-full w-full rounded-t-[30px] pb-[60px] lg:h-auto  lg:w-[58%] lg:flex-none">
           <ImageThumbCarousel heroImages={product?.images} />

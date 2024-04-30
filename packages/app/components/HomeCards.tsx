@@ -3,7 +3,7 @@
 
 import {
   FlatList,
-  Image,
+  
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -14,8 +14,8 @@ import {
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useRouter } from 'solito/navigation'
-import { SolitoImage  } from 'solito/image'
-
+import {  SolitoImage  } from 'solito/image'
+ import Image from 'next/image'
 
 interface HomeCardProps {
   title: string
@@ -37,8 +37,11 @@ export default function HomeCards({ title, data }: HomeCardProps) {
 
     let title = item.text
     let img1 = item.img
+    let myName = 'Mike'
 
-    router.push(`/product/${productID}`, { productID })
+    router.push(`/product/${productID}`+`?${myName}` )
+
+ 
   }
 
   const renderMovieCards = ({ item, index }) => {
@@ -71,7 +74,7 @@ export default function HomeCards({ title, data }: HomeCardProps) {
           //aspectRatio: 3/4
           }}
         />
-        <View className="w-[160px] max-h-[100px] z-40 flex-row justify-center justify-between  rounded-b-xl p-2 md:w-[360px]  md:p-5">
+        <View className="w-[160px] max-h-[100px] z-40 flex-row  justify-between  rounded-b-xl p-2 md:w-[360px]  md:p-5">
           <Text numberOfLines={1} className="w-[90px] font-medium md:w-[200px]">
             {item.name}
           </Text>

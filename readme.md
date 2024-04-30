@@ -3,7 +3,7 @@
 ### Logo
 
 <style>
-p {
+# p {
    align:left;
    background-color: '#fff';
   padding: 5px

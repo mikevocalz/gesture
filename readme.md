@@ -2,7 +2,7 @@
 
 ### Logo
 
-<p style="background-color: white; ">
+<p >
 <a href="https://www.gesture.vip" target="_blank" rel="noreferrer"> <img src="https://i0.wp.com/gesture.vip/wp-content/uploads/2021/09/Gesture-Logo-Wordmark.png" alt="gesture" width="400" /> </a>
 </p>
 
@@ -80,19 +80,19 @@
 
 ### **_Resources:_**
 
-##### Expo [Docs:](https://docs.expo.dev/)
+##### Expo: [https://docs.expo.dev](https://docs.expo.dev/)
 
-##### NextJS [Docs:](https://nextjs.org/docs)
+##### NextJS: [https://nextjs.org/docs](https://nextjs.org/docs)
 
-##### Nativewind [Docs:](https://www.nativewind.dev/v4/getting-started/react-native)
+##### Nativewind: [https://www.nativewind.dev/v4/getting-started/](https://www.nativewind.dev/v4/getting-started/react-native)
 
-##### Tailwind [Docs:](https://www.tailwindcss.com/)
+##### Tailwind: [https://www.tailwindcss.com/](https://www.tailwindcss.com/)
 
-##### React [Docs:](https://reactjs.org/docs/getting-started.html)
+##### React: [https://reactjs.org/docs/getting-started.html](https://reactjs.org/docs/getting-started.html)
 
-##### Tailwind CSS [Docs:](https://mui.com/material-ui/getting-started/overview/)
+##### Tailwind CSS: [https://mui.com/material-ui/getting-started/overview/](https://mui.com/material-ui/getting-started/overview/)
 
-##### MDN Sheet [Docs:](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
+##### MDN Sheet: [https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
 
 ### **_Future Goals:_**
 
